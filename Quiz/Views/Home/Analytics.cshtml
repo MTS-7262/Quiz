@@ -1,0 +1,39 @@
+﻿@using Quiz.Models
+@model IEnumerable<Analytic>
+@{
+    ViewData["Title"] = "Analytics";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="text-center">
+    <div class="card mb-3">
+        <div class="card-body">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">User Name</th>
+                        <th scope="col">Win</th>
+                        <th scope="col">Loss</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @{
+                        int i = 1;
+                    }
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <th scope="row">@i</th>
+                            <td>@item.UserName</td>
+                            <td>@item.Win</td>
+                            <td>@item.Loss</td>
+                        </tr>
+                        i++;
+                    }
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

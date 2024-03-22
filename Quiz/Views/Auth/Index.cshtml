@@ -1,0 +1,26 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AuthLayout.cshtml";
+    var error = ViewData["Error"] as string;
+}
+
+<div class="card" style="width:500px">
+    <div class="card-body">
+        <form asp-action="Login" asp-controller="auth" method="post">
+            <div class="form-group mb-2">
+                <label for="exampleInputEmail1">User Name</label>
+                <input type="email" class="form-control" id="userName" name="userName" placeholder="Enter Username">
+            </div>
+            @if(!string.IsNullOrEmpty(error))
+            {
+                <div class="form-group mb-2">
+                    <label style="color:red" >@error</label>
+                </div>
+            }
+            <button type="submit" class="btn btn-primary">Login</button>
+            <a type="button" class="btn btn-link" href="/auth/registration">Registration</a>
+        </form>
+    </div>
+</div>
+
